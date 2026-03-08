@@ -1,7 +1,9 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
+import { EmergencyChecklist } from "@/components/emergency-checklist"
 import { ServicesSection } from "@/components/services-section"
 import { WhyChooseUs } from "@/components/why-choose-us"
+import { TeamSection } from "@/components/team-section"
 import { EmergencyMetrics } from "@/components/emergency-metrics"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { CaseResults } from "@/components/case-results"
@@ -52,8 +54,10 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <EmergencyChecklist />
         <ServicesSection />
         <WhyChooseUs />
+        <TeamSection />
         <EmergencyMetrics />
         <TestimonialsSection />
         <CaseResults />

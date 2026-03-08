@@ -1,4 +1,5 @@
-import { Phone, Shield, Clock } from "lucide-react"
+import Image from "next/image"
+import { Phone, Shield, Clock, CheckCircle2, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const PHONE_NUMBER = "(619) 555-0147"
@@ -6,73 +7,93 @@ const PHONE_LINK = "tel:+16195550147"
 
 export function HeroSection() {
   return (
-    <section className="hero-gradient-bg relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
+    <section className="relative overflow-hidden bg-background pt-16 lg:pt-24">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_50%,var(--color-primary)_0%,transparent_100%)] opacity-5" />
+
+      <div className="mx-auto max-w-7xl px-4 pb-16 lg:px-8 lg:pb-24">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Text Content */}
-          <div className="flex flex-col gap-6">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+          <div className="flex animate-in fade-in slide-in-from-left-8 duration-1000 flex-col gap-6">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary ring-1 ring-primary/20">
               <Clock className="h-4 w-4" />
-              <span>24/7 Emergency Service</span>
+              <span>24/7 Rapid Response San Diego</span>
             </div>
-            
-            <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Emergency Plumbing Services in{" "}
-              <span className="text-primary">San Diego</span>
+
+            <h1 className="text-balance text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-7xl">
+              San Diego's Most Trusted{" "}
+              <span className="text-primary italic">Emergency</span> Plumbers
             </h1>
-            
-            <p className="max-w-xl text-pretty text-lg text-muted-foreground">
-              Fast, reliable plumbing solutions when you need them most. Our licensed experts are available around the clock for burst pipes, clogged drains, and all your plumbing emergencies.
+
+            <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              When every second counts, HarborFlow is there. Professional, licensed, and local experts arriving at your door in 45 minutes or less.
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
-                <a href={PHONE_LINK} className="flex items-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  <span className="font-semibold">Call Now {PHONE_NUMBER}</span>
+              <Button asChild size="lg" className="h-14 bg-destructive px-8 text-lg text-destructive-foreground hover:bg-destructive/90 shadow-lg shadow-destructive/20">
+                <a href={PHONE_LINK} className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 fill-current" />
+                  <span className="font-bold">Call Now {PHONE_NUMBER}</span>
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href="#services">View Our Services</a>
+              <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg">
+                <a href="#services">Our Services</a>
               </Button>
             </div>
 
-            {/* Trust Badges */}
-            <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            {/* Enhanced Trust Badges */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
               <div className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-primary" />
-                <span>Licensed & Insured</span>
+                <div className="flex text-amber-500">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <span className="text-sm font-semibold">5.0 Rating</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">5,000+</span>
-                <span>San Diego Families Served</span>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="h-5 w-5 text-green-600" />
+                <span className="font-medium text-foreground">Licensed, Bonded & Insured</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Shield className="h-5 w-5 text-primary" />
+                <span className="font-medium text-foreground">BBB Accredited</span>
               </div>
             </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
-              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5">
-                <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-primary/20">
-                    <Phone className="h-12 w-12 text-primary" />
-                  </div>
-                  <p className="text-lg font-semibold text-foreground">Need Help Now?</p>
-                  <p className="text-muted-foreground">We respond in 45 minutes or less</p>
+          {/* Hero Image Section */}
+          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 lg:ml-4">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-border">
+              <Image
+                src="/images/hero-plumber.jpg"
+                alt="Professional HarborFlow Plumber in San Diego"
+                className="object-cover"
+                fill
+                priority
+              />
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating Stats Badge */}
+            <div className="absolute -bottom-6 -left-6 inline-flex animate-bounce-subtle rounded-2xl bg-card p-5 shadow-2xl ring-1 ring-border lg:-left-12">
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
+                  <Clock className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <p className="text-3xl font-black tracking-tight text-foreground">45 min</p>
+                  <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Avg. Response</p>
                 </div>
               </div>
             </div>
-            {/* Floating Badge */}
-            <div className="absolute -bottom-4 -left-4 rounded-xl bg-card p-4 shadow-lg ring-1 ring-border lg:-left-8">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <Clock className="h-6 w-6 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-foreground">45 min</p>
-                  <p className="text-sm text-muted-foreground">Avg. Response Time</p>
-                </div>
+
+            {/* Trust Seal Display */}
+            <div className="absolute -top-6 -right-6 hidden rounded-full bg-white p-2 shadow-xl ring-1 ring-border sm:block lg:-right-8">
+              <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border-2 border-dashed border-primary/30 text-center">
+                <span className="text-[10px] font-bold uppercase text-muted-foreground">Est.</span>
+                <span className="text-lg font-black text-primary">2008</span>
               </div>
             </div>
           </div>

@@ -50,24 +50,30 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Card key={service.title} className="group transition-shadow hover:shadow-md">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, idx) => (
+            <Card
+              key={service.title}
+              className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-700"
+              style={{ animationDelay: `${idx * 100}ms` }}
+            >
               <CardHeader>
-                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <service.icon className="h-6 w-6" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6">
+                  <service.icon className="h-7 w-7" />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">{service.description}</CardDescription>
-                <Button asChild variant="link" className="mt-4 h-auto p-0 text-primary">
+                <CardDescription className="text-lg leading-relaxed text-muted-foreground">{service.description}</CardDescription>
+                <Button asChild variant="link" className="mt-6 h-auto p-0 text-lg font-bold text-primary group-hover:gap-2 transition-all">
                   <a href={PHONE_LINK} className="flex items-center gap-1">
-                    <Phone className="h-4 w-4" />
-                    <span>Get Help Now</span>
+                    <Phone className="h-5 w-5 fill-current" />
+                    <span>Get Immediate Help</span>
                   </a>
                 </Button>
               </CardContent>
+              {/* Decorative accent */}
+              <div className="absolute top-0 right-0 -mr-8 -mt-8 h-24 w-24 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors" />
             </Card>
           ))}
         </div>

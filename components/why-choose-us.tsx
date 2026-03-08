@@ -47,14 +47,18 @@ export function WhyChooseUs() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <div key={feature.title} className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+          {features.map((feature, idx) => (
+            <div
+              key={feature.title}
+              className="flex gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+              style={{ animationDelay: `${idx * 100}ms` }}
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 ring-1 ring-primary/20">
                 <feature.icon className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-                <p className="mt-1 text-muted-foreground">{feature.description}</p>
+                <p className="mt-1 text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}

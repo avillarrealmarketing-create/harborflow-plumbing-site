@@ -31,9 +31,8 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className={`h-4 w-4 ${
-            i < rating ? "fill-yellow-400 text-yellow-400" : "fill-muted text-muted"
-          }`}
+          className={`h-4 w-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "fill-muted text-muted"
+            }`}
         />
       ))}
     </div>
@@ -44,33 +43,37 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            What Our Customers Say
+        <div className="mx-auto mb-16 max-w-2xl text-center">
+          <h2 className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+            Trusted by San Diego Families
           </h2>
-          <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            Don't just take our word for it. Here's what San Diego homeowners say about our service.
+          <p className="mt-4 text-pretty text-lg text-muted-foreground sm:text-xl">
+            Our customers count on us for speed, cleanliness, and honest work.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} className="relative">
+          {testimonials.map((testimonial, idx) => (
+            <Card
+              key={testimonial.name}
+              className="relative border-none shadow-lg animate-in fade-in zoom-in-95 duration-700 fill-mode-both"
+              style={{ animationDelay: `${idx * 200}ms` }}
+            >
               <CardContent className="pt-6">
-                <Quote className="absolute right-6 top-6 h-8 w-8 text-muted/50" />
+                <Quote className="absolute right-6 top-6 h-8 w-8 text-primary/10" />
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <span className="text-sm font-semibold">{testimonial.initials}</span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold shadow-md">
+                    <span>{testimonial.initials}</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                    <p className="font-bold text-foreground">{testimonial.name}</p>
+                    <p className="text-xs font-medium uppercase tracking-wider text-primary">{testimonial.location}</p>
                   </div>
                 </div>
                 <div className="mt-4">
                   <StarRating rating={testimonial.rating} />
                 </div>
-                <p className="mt-4 text-muted-foreground">"{testimonial.text}"</p>
+                <p className="mt-4 italic leading-relaxed text-muted-foreground">"{testimonial.text}"</p>
               </CardContent>
             </Card>
           ))}
