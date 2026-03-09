@@ -39,7 +39,8 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-background py-16 lg:py-24">
+    <section id="services" className="relative overflow-hidden bg-background py-16 lg:py-24">
+      <div className="absolute inset-0 -z-10 bg-ripple opacity-[0.03]" />
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -54,7 +55,7 @@ export function ServicesSection() {
           {services.map((service, idx) => (
             <Card
               key={service.title}
-              className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-700"
+              className="group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(11,110,255,0.15)] animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${idx * 100}ms` }}
             >
               <CardHeader>
@@ -68,7 +69,7 @@ export function ServicesSection() {
                 <Button asChild variant="link" className="mt-6 h-auto p-0 text-lg font-bold text-primary group-hover:gap-2 transition-all">
                   <a href={PHONE_LINK} className="flex items-center gap-1">
                     <Phone className="h-5 w-5 fill-current" />
-                    <span>Get Immediate Help</span>
+                    <span>Request Priority Service</span>
                   </a>
                 </Button>
               </CardContent>

@@ -7,9 +7,10 @@ const PHONE_LINK = "tel:+16195550147"
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-background pt-16 lg:pt-24">
+    <section className="relative overflow-hidden hero-gradient-bg pt-16 lg:pt-24">
       {/* Decorative background elements */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_50%,var(--color-primary)_0%,transparent_100%)] opacity-5" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_40%_at_50%_50%,var(--color-primary)_0%,transparent_100%)] opacity-10" />
+      <div className="absolute inset-0 -z-20 bg-blueprint opacity-[0.03]" />
 
       <div className="mx-auto max-w-7xl px-4 pb-16 lg:px-8 lg:pb-24">
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -33,7 +34,7 @@ export function HeroSection() {
               <Button asChild size="lg" className="h-14 bg-destructive px-8 text-lg text-destructive-foreground hover:bg-destructive/90 shadow-lg shadow-destructive/20">
                 <a href={PHONE_LINK} className="flex items-center gap-3">
                   <Phone className="h-5 w-5 fill-current" />
-                  <span className="font-bold">Call Now {PHONE_NUMBER}</span>
+                  <span className="font-bold">Secure Your Dispatch {PHONE_NUMBER}</span>
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg">

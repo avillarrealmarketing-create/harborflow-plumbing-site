@@ -39,8 +39,11 @@ export function ServiceArea() {
                 <p className="mt-4 max-w-sm text-lg font-medium text-slate-500">
                   Our dispatch center is online 24/7. Technicians are currently active in North Park, Hillcrest, and Chula Vista.
                 </p>
-                <div className="mt-10 flex items-center gap-2 rounded-full bg-green-100 px-6 py-2 text-sm font-bold text-green-700 ring-1 ring-green-600/20">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-600" />
+                <div className="mt-10 flex items-center gap-3 rounded-full bg-green-100 px-6 py-2 text-sm font-bold text-green-700 ring-1 ring-green-600/20">
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-600 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-600" />
+                  </div>
                   Live Dispatch: Average Response 45m
                 </div>
               </div>

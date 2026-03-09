@@ -44,7 +44,7 @@ export function CaseResults() {
 
         <div className="grid gap-8 lg:grid-cols-3">
           {caseResults.map((caseResult, idx) => (
-            <Card key={caseResult.title} className="group overflow-hidden border-none shadow-xl transition-all duration-300 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-8 duration-700" style={{ animationDelay: `${idx * 150}ms` }}>
+            <Card key={caseResult.title} className="group overflow-hidden border-none shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(11,110,255,0.15)] animate-in fade-in slide-in-from-bottom-8 duration-700" style={{ animationDelay: `${idx * 150}ms` }}>
               <div className="relative aspect-square overflow-hidden">
                 {caseResult.image ? (
                   <Image

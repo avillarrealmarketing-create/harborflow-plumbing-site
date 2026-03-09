@@ -37,7 +37,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
+
   /* HarborFlow Custom Colors */
   --harbor-blue: oklch(0.55 0.22 255);
   --harbor-red: oklch(0.55 0.22 25);
@@ -81,9 +81,10 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', 'Geist', 'Geist Fallback', sans-serif;
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), 'Inter', 'Inter Fallback', 'Geist', 'Geist Fallback', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  
+
   /* HarborFlow Custom Colors */
   --color-harbor-blue: var(--harbor-blue);
   --color-harbor-red: var(--harbor-red);
@@ -131,8 +132,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
@@ -141,23 +149,36 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
 .hero-gradient-bg {
-  background: linear-gradient(
-    -45deg,
-    oklch(0.97 0.01 255),
-    oklch(0.94 0.03 255),
-    oklch(0.96 0.02 240),
-    oklch(0.98 0.005 255),
-    oklch(0.93 0.04 260)
-  );
+  background: linear-gradient(-45deg,
+      oklch(0.97 0.01 255),
+      oklch(0.94 0.03 255),
+      oklch(0.96 0.02 240),
+      oklch(0.98 0.005 255),
+      oklch(0.93 0.04 260));
   background-size: 400% 400%;
   animation: gradient-flow 15s ease infinite;
+}
+
+.bg-blueprint {
+  background-image:
+    linear-gradient(var(--harbor-blue) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--harbor-blue) 0.5px, transparent 0.5px);
+  background-size: 40px 40px;
+  background-position: center;
+}
+
+.bg-ripple {
+  background-image: radial-gradient(circle at 2px 2px, var(--harbor-blue) 1px, transparent 0);
+  background-size: 24px 24px;
 }

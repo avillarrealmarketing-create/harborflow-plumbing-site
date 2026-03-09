@@ -41,7 +41,8 @@ function StarRating({ rating }: { rating: number }) {
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="bg-background py-16 lg:py-24">
+    <section id="testimonials" className="relative overflow-hidden bg-background py-16 lg:py-24">
+      <div className="absolute inset-0 -z-10 bg-ripple opacity-[0.03]" />
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
@@ -56,7 +57,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, idx) => (
             <Card
               key={testimonial.name}
-              className="relative border-none shadow-lg animate-in fade-in zoom-in-95 duration-700 fill-mode-both"
+              className="relative border-none shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(11,110,255,0.1)] animate-in fade-in zoom-in-95 duration-700 fill-mode-both"
               style={{ animationDelay: `${idx * 200}ms` }}
             >
               <CardContent className="pt-6">

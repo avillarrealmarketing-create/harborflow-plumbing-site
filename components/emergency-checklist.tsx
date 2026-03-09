@@ -39,8 +39,9 @@ export function EmergencyChecklist() {
     return (
         <section className="bg-background py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
-                <div className="rounded-3xl bg-slate-900 px-6 py-12 text-white shadow-2xl lg:p-16">
-                    <div className="mx-auto max-w-3xl text-center">
+                <div className="relative overflow-hidden rounded-3xl bg-slate-900 px-6 py-12 text-white shadow-2xl lg:p-16">
+                    <div className="absolute inset-0 -z-0 bg-blueprint opacity-[0.05]" />
+                    <div className="relative z-10 mx-auto max-w-3xl text-center">
                         <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
                             Plumbing Emergency? <br className="hidden sm:block" />
                             <span className="text-primary italic">Follow These 4 Steps</span>
@@ -50,7 +51,7 @@ export function EmergencyChecklist() {
                         </p>
                     </div>
 
-                    <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="relative z-10 mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                         {steps.map((step, idx) => (
                             <div
                                 key={step.title}
@@ -71,7 +72,7 @@ export function EmergencyChecklist() {
                         ))}
                     </div>
 
-                    <div className="mt-16 flex flex-col items-center justify-center gap-6 rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 sm:flex-row">
+                    <div className="relative z-10 mt-16 flex flex-col items-center justify-center gap-6 rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 sm:flex-row">
                         <div className="flex flex-col text-center sm:text-left">
                             <p className="text-lg font-bold">Still need help?</p>
                             <p className="text-sm text-slate-400">Our technicians arrive in 45 minutes or less.</p>

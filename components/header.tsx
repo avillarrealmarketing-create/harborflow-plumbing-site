@@ -21,7 +21,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -52,7 +52,7 @@ export function Header() {
               <span className="font-semibold">Call Now</span>
             </a>
           </Button>
-          
+
           <Button asChild size="icon" className="bg-destructive text-destructive-foreground hover:bg-destructive/90 sm:hidden">
             <a href={PHONE_LINK} aria-label="Call HarborFlow Plumbing">
               <Phone className="h-4 w-4" />
